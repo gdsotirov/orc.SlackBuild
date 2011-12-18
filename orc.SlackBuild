@@ -19,13 +19,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: orc.SlackBuild,v 1.2 2010/10/16 09:52:54 gsotirov Exp $
+# $Id: orc.SlackBuild,v 1.3 2011/12/18 10:53:36 gsotirov Exp $
 #
 
-. ../slack-package.conf
+. ../../slack-package.conf
 
 NAME=orc
-VERSION=0.4.11
+VERSION=0.4.16
 BUILD=${BUILD:-1}
 ARCH=${ARCH:-i486}
 
@@ -51,7 +51,7 @@ mkdir -p $PKG
 
 # Extract the source
 cd $TMP
-tar -xvf $CWD/$NAME-$VERSION.tar.gz || exit 1
+tar -xvf $CWD/$NAME-$VERSION.tar.gz || exit 3
 cd $SRC fix_source
 
 # Configure
@@ -61,13 +61,14 @@ CXXFLAGS=$SLKCFLAGS \
             --host=$ARCH-slackware-linux \
             --prefix=/usr \
             --sysconfdir=/etc \
+	    --libdir=/usr/lib${LIBDIRSUFFIX} \
             --localstatedir=/var \
             --enable-shared=yes \
-            --enable-static=no || exit 2
+            --enable-static=no || exit 4
 
 # Build & install
-make -j4 || exit 3 
-make DESTDIR=$PKG install || exit 3
+make -j4 || exit 5
+make DESTDIR=$PKG install || exit 6
 
 # Prepare
 bin_perms $PKG
