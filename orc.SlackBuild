@@ -19,13 +19,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: orc.SlackBuild,v 1.7 2016/08/17 17:20:21 gsotirov Exp $
+# $Id: orc.SlackBuild,v 1.8 2016/08/17 17:23:56 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=orc
-VERSION=0.4.24
+VERSION=0.4.25
 BUILD=${BUILD:-1}
 ARCH=${ARCH:-i486}
 
@@ -67,7 +67,7 @@ CXXFLAGS=$SLKCFLAGS \
             --enable-static=no || exit 4
 
 # Build & install
-make -j4 || exit 5
+make V=1 -j || exit 5
 make DESTDIR=$PKG install || exit 6
 
 # Prepare
