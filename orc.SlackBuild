@@ -19,13 +19,13 @@
 #
 # Visit SlackPack at http://sotirov-bg.net/slackpack/
 #
-# $Id: orc.SlackBuild,v 1.9 2017/07/18 07:36:48 gsotirov Exp $
+# $Id: orc.SlackBuild,v 1.10 2017/11/21 10:49:10 gsotirov Exp $
 #
 
 . ../../slack-package.conf
 
 NAME=orc
-VERSION=0.4.27
+VERSION=0.4.28
 BUILD=${BUILD:-1}
 ARCH=${ARCH:-i486}
 
